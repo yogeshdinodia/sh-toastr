@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notifications Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- ============= Toast Notifications CSS Style ============= -->
+  <link rel="stylesheet" href="css/sh_toaster.css">
+
+<style>
+  .code-container {
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 70%;
+    max-width: 800px;
+  }
+  .code-line{
+    display: block;
+    padding-left: 15px;
+    border-left: 3px solid #4CAF50;
+    margin: 5px 0;
+  }
+  .code-line.highlight{ background-color: rgba(76, 175, 80, 0.2); }
+  .highlight{ background-color: rgba(76, 175, 80, 0.2); }
+</style>
+
+</head>
+<body>
+<!-- ============= This Div is compolsury to Show Toast Notifications ============= -->
+<div class="sh-toast-container" id="shToastContainerTop"></div>
+<div class="sh-toast-container" id="shToastContainerBottom"></div>
+
+  <div class="container mt-5">
+    <h2>Simple Toasts</h2>
+    
+    <div class="row mt-4">
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-success" id="showSuccess">Success Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-danger" id="showDanger">Dannge Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-warning" id="showWarning">Warning Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-info" id="showInfo">Info Toast</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== With Progress Bar ================== -->
+  <div class="container mt-3">
+    <h2>Toasts With ProgressBar</h2>
+    
+    <div class="row mt-4">
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-success" id="showProgSuccess">Success Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-danger" id="showProgDanger">Dannge Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-warning" id="showProgWarning">Warning Toast</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-info" id="showProgInfo">Info Toast</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== Custom Timer ================== -->
+  <div class="container mt-3">
+    <h2>Toasts With Custom Timer</h2>
+    
+    <div class="row mt-4">
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-success" id="customTimerSuccess">1 Second Timer</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-danger" id="customTimerDanger">2 Second Timer</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-warning" id="customTimerWarning">3 Second Timer</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-info" id="customTimerInfo">5 Second Timer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== Custom Timer ================== -->
+  <div class="container mt-3">
+    <h2>Toasts With Custom Location</h2>
+    
+    <div class="row mt-4">
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-success" id="locationSuccess">Top Success</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-danger" id="locationDanger">Bottom Danger</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-warning" id="locationWarning">Top Warning</button>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-info" id="locationInfo">Bottom Info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== Custom Timer ================== -->
+  <hr>
+  <div class="container mt-3 mb-5">
+    <h2>Usage: </h2>
+    <p>To use this library, simply you have to link CSS <b>(sh_toaster.css)</b> and JS Script <b>(sh_toaster.js)</b></p>
+    Then you have to initialize a simple Toaster on button click in JS script:<br><br>
+      <div class="code-container">
+         <div class="code-line">document.addEventListener('DOMContentLoaded', () => {</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;const showSuccessButton = document.getElementById('showProgSuccess');</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;showSuccessButton.addEventListener('click', () => {</div>
+         <div class="code-line highlight">&nbsp;&nbsp;&nbsp;// Toast.success (supports: success, danger, warning, info) //</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;Toast.success('Success! This is a success message.');</div>
+         <div class="code-line">&nbsp;&nbsp;});</div>
+         <div class="code-line">});</div>
+      </div>
+
+      <br><br>Want to change setting:<br><br>
+      <div class="code-container">
+         <div class="code-line">document.addEventListener('DOMContentLoaded', () => {</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;const showSuccessButton = document.getElementById('showProgSuccess');</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;showSuccessButton.addEventListener('click', () => {</div>
+         <div class="code-line highlight">&nbsp;&nbsp;&nbsp;let Settings = {<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration:  2000,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showProgress: true,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toastLocation: 'bottom'<br>
+                          &nbsp;&nbsp;&nbsp;};</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;Toast.success('Success! This is a success message.', <span class="highlight">Settings</span>);</div>
+         <div class="code-line">&nbsp;&nbsp;&nbsp;});</div>
+         <div class="code-line">});</div>
+      </div>
+  </div>
+
+<!-- ============= Toaster Library ============= -->
+<script src="js/sh_toaster.js"></script>
+
+<!-- ============= Different Toaster Script to initialize Toast ============= -->
+
+<!-- ******** Simple Toasts ******** -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const showSuccessButton = document.getElementById('showSuccess');
+  showSuccessButton.addEventListener('click', () => {
+    Toast.success('Success! This is a success message.');
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showDangerButton = document.getElementById('showDanger');
+  showDangerButton.addEventListener('click', () => {
+    Toast.danger('Danger! This is a Danger message.');
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showWarningButton = document.getElementById('showWarning');
+  showWarningButton.addEventListener('click', () => {
+    Toast.warning('Warning! This is a Warning message.');
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showInfoButton = document.getElementById('showInfo');
+  showInfoButton.addEventListener('click', () => {
+    Toast.info('Info! This is a Info message.');
+  });
+});
+</script>
+
+<!-- ******** Toasts with Progress Bar ******** -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const showSuccessButton = document.getElementById('showProgSuccess');
+  showSuccessButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  2000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.success('Success! This is a success message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showDangerButton = document.getElementById('showProgDanger');
+  showDangerButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  2000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.danger('Danger! This is a Danger message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showWarningButton = document.getElementById('showProgWarning');
+  showWarningButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  2000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.warning('Warning! This is a Warning message.', Settings);
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showInfoButton = document.getElementById('showProgInfo');
+  showInfoButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  2000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.info('Info! This is a Info message.', Settings);
+  });
+});
+</script>
+
+<!-- ******** Toasts with Custom Timer ******** -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const showSuccessButton = document.getElementById('customTimerSuccess');
+  showSuccessButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  1000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.success('Success! This is a success message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showDangerButton = document.getElementById('customTimerDanger');
+  showDangerButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  2000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.danger('Danger! This is a Danger message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showWarningButton = document.getElementById('customTimerWarning');
+  showWarningButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  3000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.warning('Warning! This is a Warning message.', Settings);
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showInfoButton = document.getElementById('customTimerInfo');
+  showInfoButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  5000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.info('Info! This is a Info message.', Settings);
+  });
+});
+</script>
+
+<!-- ******** Toasts with Custom Location ******** -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const showSuccessButton = document.getElementById('locationSuccess');
+  showSuccessButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  3000,
+        showProgress: true,
+        toastLocation: 'top'
+    };
+    Toast.success('Success! This is a success message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showDangerButton = document.getElementById('locationDanger');
+  showDangerButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  3000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.danger('Danger! This is a Danger message.', Settings);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const showWarningButton = document.getElementById('locationWarning');
+  showWarningButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  3000,
+        showProgress: true,
+        toastLocation: 'top'
+    };
+    Toast.warning('Warning! This is a Warning message.', Settings);
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const showInfoButton = document.getElementById('locationInfo');
+  showInfoButton.addEventListener('click', () => {
+    let Settings = {
+        duration:  3000,
+        showProgress: true,
+        toastLocation: 'bottom'
+    };
+    Toast.info('Info! This is a Info message.', Settings);
+  });
+});
+</script>
+
+</body>
+</html>
